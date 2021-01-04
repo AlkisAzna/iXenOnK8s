@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if($USERNAME!="" & $PASSWORD!=""){
 
-      $ch = curl_init( "http://10.48.0.3:3005/oauth2/token" );
+      $ch = curl_init( "http://34.107.117.121:3005/oauth2/token" );
 
       $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
 
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Basic YTA0MjIyZTYtMjkzMS00ZDVkLTliYzgtMjQ1NzM4MzZkMDMyOjUwYTc5NmFjLTVkYjctNDhmNi04ZTYwLTM1ZjczMGY1OTBlYg==",
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Basic MzFiMGZlZmMtODAxOS00YTY2LTljZGMtNDMwM2RmODU5YWY4OjVjZTAwYmM4LTc0YjYtNDVlYi1hMWQzLTljN2E4MjNmN2Y2Mw==",
       "Content-Type: application/x-www-form-urlencoded"));
       curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
       # Return response instead of printing.
