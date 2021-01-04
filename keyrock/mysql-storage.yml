@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-volume-claim
+  namespace: alkis-azna
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#  name: mysql-ps-volume
+#  labels:
+#    type: local
+# spec:
+#  storageClassName: standard
+#  capacity:
+#    storage: 5Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  hostPath:
+#    path: "/home/alkis-azna"
