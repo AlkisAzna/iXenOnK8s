@@ -28,4 +28,4 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/home/alkaznavouridis/myApp/iXenOnK8s"   #Where the code will be stored on a worker's path
+    path: "/home/alkaznavouridis/myApp/iXenOnK8s/code"   #Where the code will be stored on a worker's path
