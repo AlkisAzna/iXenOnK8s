@@ -51,7 +51,8 @@ if (!empty($_SESSION["access_token"] )) {
   $app=$arr[2];
   file_put_contents('php://stderr', print_r($fapp, TRUE));
 
-  $ch = curl_init( "http://10.4.14.97:1881/$app" );
+  $ch = curl_init( "http://34.107.15.66:1881/$app" );
+  #Testing
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array("X-Auth-token: thisismagickeyfornodered"));
