@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if($USERNAME!="" & $PASSWORD!=""){
 
-      $ch = curl_init( "http://34.107.117.121:3005/oauth2/token" );
+      $ch = curl_init( "http://34.107.15.66:3005/oauth2/token" );
 
       $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
 
