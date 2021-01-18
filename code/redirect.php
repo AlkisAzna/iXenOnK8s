@@ -4,7 +4,7 @@ if (!empty($_SESSION["access_token"] )) {
 
  $USERNAME=$_SESSION["USERNAME"];
  $PASSWORD=$_SESSION["PASSWORD"];
- $ch = curl_init( "http://34.107.15.66:32027/oauth2/token" );
+ $ch = curl_init( "http://35.246.222.27:32027/oauth2/token" );
  $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -51,7 +51,7 @@ if (!empty($_SESSION["access_token"] )) {
   $app=$arr[2];
   file_put_contents('php://stderr', print_r($fapp, TRUE));
 
-  $ch = curl_init( "http://34.107.15.66:1881/$app" );
+  $ch = curl_init( "http://35.246.222.27:1881/$app" );
   #Testing
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

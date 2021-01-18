@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if($USERNAME!="" & $PASSWORD!=""){
 
-      $ch = curl_init( "http://34.107.15.66:3005/oauth2/token" );
+      $ch = curl_init( "http://35.246.222.27:3005/oauth2/token" );
 
       $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
 
@@ -182,7 +182,7 @@ input[type=submit] {
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="autocomplete" style="width:300px;   ">
       <h2>LOGIN PAGE</h2>
-      USERNAME:
+      EMAIL:
       <input id="username" type="text" name="USERNAME" value=<?php echo $USERNAME;?>>
       <span class="error"><?php echo $IDErr;?></span>
 

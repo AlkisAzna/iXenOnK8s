@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   pressure=1.677721599609375E7)*/
 
 $id=$phpobj["identifier"];
-$ch = curl_init( "http://10.48.0.9:1027/v2/op/update" );
+$ch = curl_init( "http://10.4.12.80:1027/v2/op/update" ); #orion-proxy
    /*$payload = '{
      "temperature": {
        "value": '.$phpobj["temperatureInCelsiusDegrees"].',

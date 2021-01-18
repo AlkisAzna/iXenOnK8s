@@ -6,7 +6,7 @@ if (!empty($_SESSION["access_token"] )) {
   $USERNAME=$_SESSION["USERNAME"];
   $PASSWORD=$_SESSION["PASSWORD"];
   //echo "User: ".$USERNAME."<br><br><br>";
-  $ch=curl_init("http://10.48.0.9:1027/v2/entities/$USERNAME");
+  $ch=curl_init("http://10.4.12.80:1027/v2/entities/$USERNAME"); #orion proxy
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch,CURLOPT_HTTPHEADER,array("Fiware-ServicePath: /appSubscribers","X-Auth-token: thismagickeyfororion","Fiware-Service: tourguide"));
