@@ -188,7 +188,7 @@ input[type=submit] {
 
       <br><br>
       PASSWORD:
-      <input id="pass"type="text" name="PASSWORD" value=<?php echo $PASSWORD;?>>
+      <input id="pass"type="password" name="PASSWORD" value=<?php echo $PASSWORD;?>>
       <span class="error"><?php echo $PassErr;?></span>
       <br><br>
       <input type="submit" name="submit" value="Login">
