@@ -1,0 +1,148 @@
+*DEPLOY THE APP IN DOCKER*
+-Go into the folder where docker-compose.yml is stored
+-RUN "sudo docker-compose up -d"
+-RUN "sudo docker ps" ... There must be 14 containers up and running but node-red will fail because of permissions!!
+-RUN "sudo chown -R 1000:1000 path/to/your/node-red/data"
+-RUN "sudo docker-compose up -d"
+-RUN "sudo docker ps" ... There must be 15 containers now up and running!!
+-CONNECT TO KEYROCK gcloud compute addresses list form browser, REGISTER APP, COMPETE THE URL,CALLBACK URL etc....update the Authorization:Basic header in index.php with base64(clientid:appid) in the files:index.php,redirect.php
+-DEFINE PEP PROXY , UPDATE THE CREDENTIALS OF PEP PROXYs INTO docker-compose.yml
+-RUN "sudo docker-compose down && sudo docker-compose build && sudo docker-compose up -d"
+-Connect to the app from browser 172.16.1.3...not with localhost
+
+*ADD ENTITY TO ORION*
+
+curl --location --request POST 'http://172.16.1.8:1027/v2/entities' \
+--header 'X-Auth-token: thismagickeyfororion' \
+--header 'Fiware-Service: tourguide' \
+--header 'Fiware-ServicePath: /citySensors' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"id": "D1C19631103AD2AA9C780934FD62CE0D",
+	"type": "Sensor",
+	"context": {
+		"type": "StructuredValue",
+		"value": {
+			"City": "http://dbpedia.org/ontology/City",
+			"Float": "http://www.w3.org/2001/XMLSchema#float",
+			"Integer": "http://www.w3.org/2001/XMLSchema#int",
+			"Text": "http://www.w3.org/2001/XMLSchema#string",
+			"Sensor": "https://www.w3.org/TR/vocab-ssn/#SOSASensor",
+			"UOM": "https://www.w3.org/2005/Incubator/ssn/wiki/SensorOntology2009#UnitOfMeasurement",
+			"value": "https://www.w3.org/TR/vocab-ssn/#SOSAhasResult",
+			"location": "http://www.loa-cnr.it/ontologies/DUL.owl#hasLocation",
+			"metadata": "https://www.w3.org/2005/Incubator/ssn/wiki/SensorOntology2009#hasMetaDataInformation",
+			"Model": "https://www.w3.org/2005/Incubator/ssn/wiki/SensorOntology2009#ModelName",
+			"pressure": "https://www.semanticscholar.org/topic/Atmospheric-Pressure/40578",
+			"temperature": "https://en.wikipedia.org/wiki/Temperature",
+			"ambientLight": "https://en.wikipedia.org/wiki/Available_light",
+			"Lux": "https://el.wikipedia.org/wiki/Lux",
+			"Celsius": "http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius",
+			"acceleration": "https://en.wikipedia.org/wiki/Acceleration",
+			"magnetometer": "https://en.wikipedia.org/wiki/Magnetometer",
+			"rssi": "https://en.wikipedia.org/wiki/Received_signal_strength_indication",
+			"Publisher": "http://dbpedia.org/ontology/publisher",
+
+			"type": "@type",
+			"id": "@id"
+
+		},
+		"metadata": {}
+	},
+	"pressure": {
+		"type": "Number",
+		"value": 87,
+		"metadata": {
+			"UOM": {
+				"type": "Text",
+				"value": "pa"
+			}
+		}
+	},
+	"ambientLight": {
+		"type": "Number",
+		"value": 87,
+		"metadata": {
+			"UOM": {
+				"type": "Text",
+				"value": "Lux"
+			}
+		}
+	},
+	"location": {
+		"type": "geo:point",
+		"value": "41.3763726, 2.1864475",
+		"metadata": {
+			"City": {
+				"type": "Text",
+				"value": "Chania"
+			}
+		}
+	},
+	"Model": {
+		"type": "Text",
+		"value": "Proximity Beacon",
+		"metadata": {
+			"Publisher": {
+				"type": "Text",
+				"value": "Estimote"
+			}
+		}
+	},
+	"temperature": {
+		"type": "Number",
+		"value": 32,
+		"metadata": {
+			"UOM": {
+				"type": "Text",
+				"value": "Celsius"
+			}
+		}
+	}
+}
+'
+
+*SUBSCRIBE CYGNUS TO ORION*
+
+curl --location --request POST 'http://172.16.1.8:1027/v2/subscriptions' \
+--header 'Content-Type: application/json' \
+--header 'X-Auth-token: thismagickeyfororion' \
+--header 'Fiware-Service: tourguide' \
+--header 'Fiware-ServicePath: /citySensors' \
+--data-raw '{
+  "description": "Notify Cygnus of all context changes",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": ".*"
+      }
+    ]
+  },
+  "notification": {
+    "http": {
+      "url": "http://172.16.1.3/accumulate.php"
+    }
+  },
+  "throttling": 5
+}'
+
+*SEND MEASURES*
+
+curl --location --request POST 'http://172.16.1.3/packetR.php' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"identifier":
+"D1C19631103AD2AA9C780934FD62CE0D",
+"ambientLightInLux":"3584.3999997",
+"temperatureInCelsiusDegrees":"100",
+"pressure": "1.677721599609375E7"
+}'
+
+*COMET TESTING-AFTER YOU HAVE SENT SOME MEASURES ABOUT TEMPERATURE*
+
+curl --location --request GET 'http://172.16.1.11:8667/STH/v1/contextEntities/type/Sensor/id/D1C19631103AD2AA9C780934FD62CE0A/attributes/temperature?aggrMethod=min&aggrPeriod=day&dateFrom=2002-01-01T14:00:00.00Z' \
+--header 'Fiware-Service: tourguide' \
+--header 'X-Auth-token: thismagickeyforcomet' \
+--header 'Fiware-ServicePath: /citySensors'
+
