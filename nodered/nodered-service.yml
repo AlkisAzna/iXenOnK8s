@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: nodered
-  clusterIP: 10.4.13.73
+  clusterIP: 10.124.0.7
   ports:
   - protocol: TCP
     port: 1880

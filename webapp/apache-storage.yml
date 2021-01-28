@@ -4,10 +4,9 @@ metadata:
   name: apache-volume-claim
   namespace: alkis-azna
 spec:
-  storageClassName: standard
-  volumeName: apache-ps-volume
+  storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
@@ -16,16 +15,15 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: apache-ps-volume
+  namespace: alkis-azna
   labels:
     type: local
 spec:
-  storageClassName: standard
-  claimRef:
-     namespace: alkis-azna
-     name: apache-volume-claim
+  storageClassName: manual
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: "/home/alkaznavouridis/myApp/iXenOnK8s/code/"   #Where the code will be stored on a worker's path
+  nfs:
+    server: 35.207.148.14 #ip of the nfs server
+    path: "/mnt/sharedfolder/code"   #Where the code is stored on the nfs server

@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: noderedproxy
-  clusterIP: 10.4.14.97
+  clusterIP: 10.124.0.8
   ports:
   - protocol: TCP
     port: 1881

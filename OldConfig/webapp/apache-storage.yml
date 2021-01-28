@@ -1,0 +1,31 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: apache-volume-claim
+  namespace: alkis-azna
+spec:
+  storageClassName: standard
+  volumeName: apache-ps-volume
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: apache-ps-volume
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  claimRef:
+     namespace: alkis-azna
+     name: apache-volume-claim
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/home/alkaznavouridis/myApp/iXenOnK8s/code/"   #Where the code will be stored on a worker's path

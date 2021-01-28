@@ -7,10 +7,9 @@ spec:
   type: NodePort
   selector:
     app: apache
-  clusterIP: 10.4.12.96
+  clusterIP: 10.124.0.3
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
     nodePort: 32000
-    #For multiple-ports we have to define the name of each port

@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: cygnus
-  clusterIP: 10.4.5.232
+  clusterIP: 10.124.0.4
   ports:
   - protocol: TCP
     name: serviceport

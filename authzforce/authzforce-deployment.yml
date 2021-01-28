@@ -9,11 +9,11 @@ spec:
     replicas: 1
     selector:
         matchLabels:
-            app: authzforce 
+            app: authzforce
     template:
         metadata:
             labels:
-                app: authzforce #For service to match
+                app: authzforce
         spec:
             containers:
                 - name: authzforce

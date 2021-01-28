@@ -4,11 +4,11 @@ if (!empty($_SESSION["access_token"] )) {
 
  $USERNAME=$_SESSION["USERNAME"];
  $PASSWORD=$_SESSION["PASSWORD"];
- $ch = curl_init( "http://35.246.222.27:32027/oauth2/token" );
+ $ch = curl_init( "http://35.189.119.210:32027/oauth2/token" );
  $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
- curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Basic MzFiMGZlZmMtODAxOS00YTY2LTljZGMtNDMwM2RmODU5YWY4OjVjZTAwYmM4LTc0YjYtNDVlYi1hMWQzLTljN2E4MjNmN2Y2Mw==" ,
+ curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Basic NGI2MWU0ZGItZTc5NS00MWViLWFiY2EtYTJkMDkzODBiNGFkOjQ5YTdjYjM2LTdhNDUtNGIxZi04MDc5LTkyMjAyODU5YTU5MA==" ,
  "Content-Type: application/x-www-form-urlencoded"));
  curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
  # Return response instead of printing.
@@ -51,8 +51,7 @@ if (!empty($_SESSION["access_token"] )) {
   $app=$arr[2];
   file_put_contents('php://stderr', print_r($fapp, TRUE));
 
-  $ch = curl_init( "http://35.246.222.27:1881/$app" );
-  #Testing
+  $ch = curl_init( "http://10.48.0.6:1881/$app" );
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array("X-Auth-token: thisismagickeyfornodered"));

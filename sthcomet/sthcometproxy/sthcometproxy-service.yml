@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: sthcometproxy
-  #clusterIP: 10.4.3.122
+  clusterIP: 10.124.0.14
   ports:
   - protocol: TCP
     port: 8667

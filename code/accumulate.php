@@ -15,7 +15,7 @@
   //print_r($headers);
   //print_r($f_headers);
   $time_start = microtime(true);
-  $ch=curl_init("http://10.4.3.122:5052/notify"); #cygnus proxy
+  $ch=curl_init("http://10.48.0.11:5051/notify");
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch,CURLOPT_HTTPHEADER,$f_headers);

@@ -30,7 +30,7 @@ spec:
                   volumeMounts:
                     - name: nodered-volume
                       mountPath: /data
-                      subPath: data
+                      subPath: nodered
             volumes:
               - name: nodered-volume
                 persistentVolumeClaim:

@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: orionproxy
-  clusterIP: 10.4.12.80
+  clusterIP: 10.124.0.15
   ports:
   - protocol: TCP
     port: 1027

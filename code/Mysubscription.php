@@ -6,7 +6,7 @@ if (!empty($_SESSION["access_token"] )) {
   $USERNAME=$_SESSION["USERNAME"];
   $PASSWORD=$_SESSION["PASSWORD"];
   //echo "User: ".$USERNAME."<br><br><br>";
-  $ch=curl_init("http://10.4.12.80:1027/v2/entities/$USERNAME"); #orion proxy
+  $ch=curl_init("http://10.48.0.9:1027/v2/entities/$USERNAME");
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch,CURLOPT_HTTPHEADER,array("Fiware-ServicePath: /appSubscribers","X-Auth-token: thismagickeyfororion","Fiware-Service: tourguide"));
@@ -195,7 +195,7 @@ var fiter_results=new Array();
             span.style.fontSize = "20px";
             span.style.color = "DodgerBlue";
             span.appendChild(createAText);
-            createA.setAttribute('href', "http://35.197.243.160:32000/redirect.php/"+key);
+            createA.setAttribute('href', "http://35.189.119.210:32000/redirect.php/"+key);
             createA.appendChild(span);
             label.appendChild(createA);
             label.appendChild(document.createElement('br'));

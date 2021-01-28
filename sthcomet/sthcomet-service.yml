@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: comet
-  clusterIP: 10.4.13.247
+  clusterIP: 10.124.0.13
   ports:
   - protocol: TCP
     port: 8666

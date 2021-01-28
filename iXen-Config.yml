@@ -1,0 +1,3 @@
+kubectl apply -f ./keyrock/mysql-secret.yml
+kubectl apply -f ./keyrock/mysql-storage.yml
+kubectl apply -f ./keyrock/mysql-service.yml

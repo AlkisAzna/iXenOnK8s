@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: cygnusproxy
-  clusterIP: 10.4.3.122
+  clusterIP: 10.124.0.5
   ports:
   - protocol: TCP
     port: 5052

@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: queryingsensors
-  clusterIP: 10.4.8.217
+  clusterIP: 10.124.0.11
   ports:
   - protocol: TCP
     port: 1024

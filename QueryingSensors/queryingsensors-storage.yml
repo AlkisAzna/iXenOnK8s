@@ -4,24 +4,26 @@ metadata:
   name: queryingsensors-volume-claim
   namespace: alkis-azna
 spec:
-  storageClassName: standard
+  storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
-# ---
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#  name: queryingsensors-ps-volume
-#  labels:
-#    type: local
-# spec:
-#  storageClassName: manual
-#  capacity:
-#    storage: 1Gi
-#  accessModes:
-#    - ReadWriteMany
-#  hostPath:
-#    path: "/home/ubuntu/kostas/QueryingSensors"   #Where the code will be stored on a worker's path
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: queryingsensors-ps-volume
+  namespace: kostas
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+   server: 35.207.148.14 #ip of the nfs server
+   path: "/mnt/sharedfolder/QueryingSensors"   #Where the code is stored on the nfs server

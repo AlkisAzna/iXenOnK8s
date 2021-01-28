@@ -1,0 +1,33 @@
+#You have to build the Dockerfile and upload the image on your personal Dockerhub Repository
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: apache-deployment
+    namespace: alkis-azna
+    labels:
+        app: apache
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: apache
+    template:
+        metadata:
+            labels:
+                app: apache
+        spec:
+            containers:
+                - name: www
+                  image: ktsakos/ixenfinal_www:latest
+                  imagePullPolicy: IfNotPresent
+                  ports:
+                    - containerPort: 80
+                      protocol: TCP
+                  volumeMounts: 
+                    - mountPath: /var/www/html
+                      name: apache-volume #Should be the same as volumes name below
+            volumes:
+                - name: apache-volume
+                  persistentVolumeClaim:
+                    claimName: apache-volume-claim #A claim should be mentioned inside the pod-deployment
+        

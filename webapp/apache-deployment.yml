@@ -23,11 +23,12 @@ spec:
                   ports:
                     - containerPort: 80
                       protocol: TCP
+
                   volumeMounts: 
                     - mountPath: /var/www/html
-                      name: apache-volume #Should be the same as volumes name below
+                      name: apache-volume
             volumes:
                 - name: apache-volume
                   persistentVolumeClaim:
-                    claimName: apache-volume-claim #A claim should be mentioned inside the pod-deployment
+                    claimName: apache-volume-claim
         

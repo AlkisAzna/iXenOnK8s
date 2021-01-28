@@ -5,9 +5,9 @@ metadata:
   namespace: alkis-azna
 spec:
   selector:
-    app: authzforce #Match with deployment name
-  clusterIP: 10.4.9.129
+    app: authzforce
+  clusterIP: 10.124.0.6
   ports:
   - protocol: TCP
     port: 9090
-    targetPort: 8080 #Has to match with the port of the pod
+    targetPort: 8080

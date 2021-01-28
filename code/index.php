@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if($USERNAME!="" & $PASSWORD!=""){
 
-      $ch = curl_init( "http://35.246.222.27:3005/oauth2/token" );
+      $ch = curl_init( "http://10.48.0.3:3005/oauth2/token" );
 
       $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
 
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Basic MzFiMGZlZmMtODAxOS00YTY2LTljZGMtNDMwM2RmODU5YWY4OjVjZTAwYmM4LTc0YjYtNDVlYi1hMWQzLTljN2E4MjNmN2Y2Mw==",
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Basic NGI2MWU0ZGItZTc5NS00MWViLWFiY2EtYTJkMDkzODBiNGFkOjQ5YTdjYjM2LTdhNDUtNGIxZi04MDc5LTkyMjAyODU5YTU5MA==",
       "Content-Type: application/x-www-form-urlencoded"));
       curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
       # Return response instead of printing.
@@ -182,13 +182,13 @@ input[type=submit] {
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="autocomplete" style="width:300px;   ">
       <h2>LOGIN PAGE</h2>
-      EMAIL:
+      USERNAME:
       <input id="username" type="text" name="USERNAME" value=<?php echo $USERNAME;?>>
       <span class="error"><?php echo $IDErr;?></span>
 
       <br><br>
       PASSWORD:
-      <input id="pass"type="password" name="PASSWORD" value=<?php echo $PASSWORD;?>>
+      <input id="pass"type="text" name="PASSWORD" value=<?php echo $PASSWORD;?>>
       <span class="error"><?php echo $PassErr;?></span>
       <br><br>
       <input type="submit" name="submit" value="Login">

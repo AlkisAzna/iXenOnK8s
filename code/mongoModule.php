@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//file_put_contents('php://stderr', print_r($query, TRUE));
 		$query=json_decode($query);
 		$query=json_decode(json_encode($query),true);
-		$client = new MongoDB\Client("mongodb://10.48.0.7:27017");
+		$client = new MongoDB\Client("mongodb://mongo:27017");
 		$document = $client->{'orion-tourguide'}->entities;
 		$cursor = $document->find($query);
 		$result=json_encode(iterator_to_array($cursor));

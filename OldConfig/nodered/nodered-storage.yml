@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nodered-volume-claim
+  namespace: alkis-azna
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#  name: nodereds-ps-volume
+#  labels:
+#    type: local
+# spec:
+#  storageClassName: manual
+#  capacity:
+#    storage: 1Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  hostPath:
+#    path: "/home/ubuntu/kostas/nodered"

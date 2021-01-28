@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: orion
-  clusterIP: 10.4.2.63
+  clusterIP: 10.124.0.9
   type: NodePort
   ports:
   - protocol: TCP
