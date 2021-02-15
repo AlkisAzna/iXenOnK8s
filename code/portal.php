@@ -9,7 +9,7 @@ if (!empty($_SESSION["access_token"] )) {
 
 }else{
     //echo "you must login first ";
-    header("Location: http://10.96.0.17/index.php");
+    header("Location: http://10.124.0.3/index.php");
   }
 ?>
 <!DOCTYPE html>

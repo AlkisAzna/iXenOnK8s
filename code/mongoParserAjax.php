@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $request_body = file_get_contents('php://input');
-  $ch=curl_init("http://10.48.0.16:1025");
+  $ch=curl_init("http://10.124.0.12:1025");
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch,CURLOPT_HTTPHEADER,array("X-Auth-token: thisismagickeyforqueryingsensors",));
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo  $result;
   }else{
     
-    $ch=curl_init("http://10.48.0.17:80/mongoModule.php");
+    $ch=curl_init("http://10.124.0.3:80/mongoModule.php");
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt( $ch, CURLOPT_POSTFIELDS, $result );

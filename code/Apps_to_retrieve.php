@@ -9,7 +9,7 @@ if (!empty($_SESSION["access_token"] )) {
     $request_body = file_get_contents('php://input');
     $phpobj=json_decode($request_body,true);
     $service_path=$phpobj['service_path'];
-    $ch=curl_init("http://10.48.0.9:1027/v2/entities/$USERNAME");
+    $ch=curl_init("http://10.124.0.15:1027/v2/entities/$USERNAME");
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch,CURLOPT_HTTPHEADER,array("Fiware-ServicePath: /applications/$service_path","Fiware-Service: tourguide","X-Auth-token: thismagickeyfororion"));

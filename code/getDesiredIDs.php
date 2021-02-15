@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }else{
       $payload='{"entities": ['.$payload.']}';
   }
-  $ch=curl_init("http://10.48.0.9:1027/v2/op/query");
+  $ch=curl_init("http://10.124.0.15:1027/v2/op/query");
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
   curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-Type: application/json","X-Auth-token: thismagickeyfororion","Fiware-Service: tourguide",'Fiware-ServicePath:/citySensors'));
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

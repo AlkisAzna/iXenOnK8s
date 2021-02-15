@@ -48,7 +48,7 @@ if (!empty($_SESSION["access_token"] )) {
 		        "name": "",
 		        "method": "POST",
 		        "ret": "obj",
-		        "url": "http://10.48.0.17/calculations.php",
+		        "url": "http://10.124.0.3/calculations.php",
 		        "tls": "",
 		        "x": 730,
 		        "y": 380,
@@ -88,7 +88,7 @@ if (!empty($_SESSION["access_token"] )) {
 		    }
 		]
   } ';
-		$ch=curl_init("http://10.48.0.6:1881/flow/$appid");
+		$ch=curl_init("http://10.124.0.8:1881/flow/$appid");
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 	  curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-Type: application/json","X-Auth-token: thisismagickeyfornodered","Node-RED-Deployment-Type: flows"));
 	  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

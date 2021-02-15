@@ -26,7 +26,7 @@ if (!empty($_SESSION["access_token"] )) {
 
                   }';
 
-      $ch = curl_init("http://10.48.0.9:1027/v2/op/update");
+      $ch = curl_init("http://10.124.0.15:1027/v2/op/update");
       $payload = '{
         "actionType": "append",
         "entities": ['.$message.']

@@ -32,7 +32,7 @@ function calculate_H_AVERAGE_7D($attr,$ids){
 		$dates_array = array();
 		$dates_count = array();
 		for ($x = 0; $x < count($ids); $x++) {
-			$ch = curl_init( "http://10.48.0.14:8667/STH/v1/contextEntities/type/Sensor/id/$ids[$x]/attributes/$attr?aggrMethod=sum&aggrPeriod=day&dateFrom=$stop_date" );
+			$ch = curl_init( "http://10.124.0.14:8667/STH/v1/contextEntities/type/Sensor/id/$ids[$x]/attributes/$attr?aggrMethod=sum&aggrPeriod=day&dateFrom=$stop_date" );
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_HTTPHEADER,array("Fiware-Service: tourguide","X-Auth-token: thismagickeyforcomet",'Fiware-ServicePath: /citySensors'));

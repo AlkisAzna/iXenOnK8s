@@ -10,7 +10,7 @@ if (!empty($_SESSION["access_token"] )) {
     $admintoken=array();
     $count=0;
       /////////////////////////////////////////////////////////////////////// GET ADMIN INTERNAL TOKEN.
-    $ch = curl_init( "http://10.48.0.3:3005/v1/auth/tokens" );
+    $ch = curl_init( "http://10.124.0.2:3005/v1/auth/tokens" );
     $payload = '{
     "name": "admin@test.com",
     "password": "1234"

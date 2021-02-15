@@ -15,7 +15,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: queryingsensors-ps-volume
-  namespace: kostas
+  namespace: alkis-azna
   labels:
     type: local
 spec:

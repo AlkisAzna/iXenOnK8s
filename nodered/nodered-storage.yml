@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nodered-volume-claim
-  namespace: kostas
+  namespace: alkis-azna
 spec:
   storageClassName: manual
   accessModes:

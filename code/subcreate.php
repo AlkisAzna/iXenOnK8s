@@ -26,7 +26,7 @@ if (!empty($_SESSION["access_token"] )) {
       echo $message;
 
 
-      $ch = curl_init( "10.48.0.9:1027/v1/updateContext" );
+      $ch = curl_init( "10.124.0.15:1027/v1/updateContext" );
       $payload = '{
             "contextElements": [
                 {
