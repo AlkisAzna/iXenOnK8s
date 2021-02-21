@@ -10,6 +10,7 @@ spec:
   clusterIP: 10.124.0.3
   ports:
   - protocol: TCP
+    name: tcp
     port: 80
     targetPort: 80
     nodePort: 32000

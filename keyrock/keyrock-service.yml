@@ -10,6 +10,7 @@ spec:
   clusterIP: 10.124.0.2
   ports:
   - protocol: TCP
+    name: tcp
     port: 3005
     targetPort: 3005
     nodePort: 32027

@@ -10,6 +10,7 @@ spec:
   type: NodePort
   ports:
   - protocol: TCP
+    name: tcp
     port: 1026
     targetPort: 1026
     nodePort: 32001

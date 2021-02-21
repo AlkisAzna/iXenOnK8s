@@ -9,5 +9,6 @@ spec:
   clusterIP: 10.124.0.15
   ports:
   - protocol: TCP
+    name: tcp
     port: 1027
     targetPort: 1027

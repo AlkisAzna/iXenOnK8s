@@ -8,6 +8,7 @@ spec:
     app: queryingsensorsproxy
   clusterIP: 10.124.0.12
   ports:
-  - protocol: TCP
-    port: 1025
-    targetPort: 1025
+    - protocol: TCP
+      name: tcp
+      port: 1025
+      targetPort: 1025
