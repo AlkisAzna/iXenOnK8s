@@ -105,7 +105,7 @@ curl --location --request POST 'http://35.242.244.40:32001/v2/entities' \
 
 *SUBSCRIBE CYGNUS TO ORION*
 
-curl --location --request POST 'http://10.124.0.9:1027/v2/subscriptions' \
+curl --location --request POST 'http://10.124.0.9:1026/v2/subscriptions' \
 --header 'Content-Type: application/json' \
 --header 'X-Auth-token: thismagickeyfororion' \
 --header 'Fiware-Service: tourguide' \

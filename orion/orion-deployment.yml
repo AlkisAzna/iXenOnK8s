@@ -21,4 +21,9 @@ spec:
                 imagePullPolicy: IfNotPresent
                 ports:
                  - containerPort: 1026
+                readinessProbe:
+                  tcpSocket:
+                    port: 1026
+                  initialDelaySeconds: 120
+                  periodSeconds: 30
                 args: ["-dbhost", "mongo:27017", "-logLevel", "INFO"]
