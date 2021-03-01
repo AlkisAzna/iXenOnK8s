@@ -129,7 +129,7 @@ curl --location --request POST 'http://10.124.0.15:1027/v2/subscriptions' \
 
 *SEND MEASURES*
 
-curl --location --request POST 'http://172.16.1.3/packetR.php' \
+curl --location --request POST 'http://35.242.244.40:32000/packetR.php' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "identifier":
@@ -141,7 +141,7 @@ curl --location --request POST 'http://172.16.1.3/packetR.php' \
 
 *COMET TESTING-AFTER YOU HAVE SENT SOME MEASURES ABOUT TEMPERATURE*
 
-curl --location --request GET 'http://172.16.1.11:8667/STH/v1/contextEntities/type/Sensor/id/D1C19631103AD2AA9C780934FD62CE0A/attributes/temperature?aggrMethod=min&aggrPeriod=day&dateFrom=2002-01-01T14:00:00.00Z' \
+curl --location --request GET 'http://10.124.0.14:8667/STH/v1/contextEntities/type/Sensor/id/D1C19631103AD2AA9C780934FD62CE0D/attributes/temperature?aggrMethod=min&aggrPeriod=day&dateFrom=2002-01-01T14:00:00.00Z' \
 --header 'Fiware-Service: tourguide' \
 --header 'X-Auth-token: thismagickeyforcomet' \
 --header 'Fiware-ServicePath: /citySensors'

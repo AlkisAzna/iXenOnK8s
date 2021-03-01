@@ -12,7 +12,7 @@ if (!empty($_SESSION["access_token"] )) {
       /////////////////////////////////////////////////////////////////////// GET ADMIN INTERNAL TOKEN.
     $ch = curl_init( "http://10.124.0.2:3005/v1/auth/tokens" );
     $payload = '{
-    "name": "admin@test.com",
+    "name": "alkaznavouridis@gmail.com",
     "password": "1234"
     }';
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -42,7 +42,7 @@ if (!empty($_SESSION["access_token"] )) {
     $xauthtokenstring=implode("",$xauthtoken);//ADMIN INTERNAL TOKEN
 //print_r($xauthtokenstring);
     ////////////////////////////////////////////////////////////////////// FIND LOGED USER INTERNAL TOKEN.
-      $ch = curl_init( "http://10.48.0.3:3005/v1/auth/tokens" );
+      $ch = curl_init( "http://10.124.0.2:3005/v1/auth/tokens" );
       $payload = '{
       "name": "'.$USERNAME.'",
       "password": "'.$PASSWORD.'"
@@ -67,7 +67,7 @@ if (!empty($_SESSION["access_token"] )) {
       }
       //print_r($XSubjecttoken);
     //////////////////////////////////////////////////////////////////////   FIND LOGED USER ID.
-    $ch=curl_init("http://10.48.0.3:3005/v1/auth/tokens");
+    $ch=curl_init("http://10.124.0.2:3005/v1/auth/tokens");
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch,CURLOPT_HTTPHEADER,array("X-Auth-token: $xauthtokenstring",$XSubjecttoken));
@@ -93,7 +93,7 @@ $payload =
     "name": "'.$USERNAME.'"
   }
 }';
-$ch = curl_init( "http://10.48.0.3:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/roles" );
+$ch = curl_init( "http://10.124.0.2:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/roles" );
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-Type: application/json","X-Auth-token: $xauthtokenstring"));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -114,7 +114,7 @@ for ($x = 0; $x < count($phpobj); $x++) {
         "resource": "/'.$phpobj[$x].'"
       }
     }';
-    $ch = curl_init( "http://10.48.0.3:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/permissions" );
+    $ch = curl_init( "http://10.124.0.2:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/permissions" );
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-Type: application/json","X-Auth-token: $xauthtokenstring"));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -130,7 +130,7 @@ for ($x = 0; $x < count($phpobj); $x++) {
 ////////////////////////////////////////////////////////////////////////  assign permmisions to user role.
 for ($x = 0; $x < count($permmissions); $x++) {
 
-    $ch = curl_init( "http://10.48.0.3:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/roles/$roleid/permissions/$permmissions[$x]" );
+    $ch = curl_init( "http://10.124.0.2:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/roles/$roleid/permissions/$permmissions[$x]" );
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-Type: application/json","X-Auth-token: $xauthtokenstring"));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -141,7 +141,7 @@ for ($x = 0; $x < count($permmissions); $x++) {
 
 }
 ////////////////////////////////////////////////////////////////////////  assign role to a user.
-$ch = curl_init( "http://10.48.0.3:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/users/$userid/roles/$roleid" );
+$ch = curl_init( "http://10.124.0.2:3005/v1/applications/8b7d8559-2b3c-44d9-9303-26d158d9f513/users/$userid/roles/$roleid" );
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-Type: application/json","X-Auth-token: $xauthtokenstring"));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

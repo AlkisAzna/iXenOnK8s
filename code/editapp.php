@@ -444,7 +444,7 @@ e.g: This app is showing cool stuff
 <script src="https://cdn.jsdelivr.net/npm/jsonld@1.0.0/dist/jsonld.min.js"></script>
 <script>
 function back() {
-  window.location.href = 'http://10.48.0.17/devPortal';
+  window.location.href = 'http://10.124.0.3/devPortal';
 }
 </script>
 <script>

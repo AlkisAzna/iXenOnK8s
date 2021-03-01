@@ -9,10 +9,10 @@ spec:
   clusterIP: 10.124.0.4
   ports:
   - protocol: TCP
-    name: serviceport
+    name: tcp
     port: 5051
     targetPort: 5051
-  - protocol: TCP
-    name: apiport
-    port: 5080
-    targetPort: 5080
+  # - protocol: TCP
+  #   name: apiport
+  #   port: 5080
+  #   targetPort: 5080
