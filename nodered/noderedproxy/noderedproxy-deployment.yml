@@ -5,6 +5,7 @@ metadata:
     namespace: alkis-azna
     labels:
         app: noderedproxy
+        version: v1
 spec:
     replicas: 1
     selector:
@@ -14,6 +15,7 @@ spec:
         metadata:
             labels:
                 app: noderedproxy
+                version: v1
         spec:
             containers:
                 - name: nodered-propy

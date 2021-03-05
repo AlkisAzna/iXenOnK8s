@@ -5,6 +5,7 @@ metadata:
     namespace: alkis-azna
     labels:
         app: mysql
+        version: v1
 spec:
     serviceName: "mysql"
     replicas: 1
@@ -15,6 +16,7 @@ spec:
         metadata:
             labels:
                 app: mysql
+                version: v1
         spec:
             #terminationGracePeriodSeconds: 10
             containers:

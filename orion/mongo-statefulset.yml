@@ -5,6 +5,7 @@ metadata:
     namespace: alkis-azna
     labels:
         app: mongo
+        version: v1
 spec:
     serviceName: "mongo"
     replicas: 1
@@ -15,6 +16,7 @@ spec:
         metadata:
             labels:
                 app: mongo
+                version: v1
         spec:
             containers:
               - name: mongo
