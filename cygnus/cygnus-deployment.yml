@@ -24,11 +24,6 @@ spec:
               ports:
                 - containerPort: 5080
                 - containerPort: 5051
-              readinessProbe:
-                  tcpSocket:
-                    port: 5051
-                  initialDelaySeconds: 120
-                  periodSeconds: 30
               env:
                 - name: CYGNUS_MONGO_HOSTS
                   valueFrom:

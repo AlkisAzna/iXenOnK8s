@@ -24,11 +24,6 @@ spec:
                   ports:
                     - containerPort: 1025
                       protocol: TCP
-                  readinessProbe:
-                    tcpSocket:
-                      port: 1025
-                    initialDelaySeconds: 120
-                    periodSeconds: 30
                   env:
                     - name: PEP_PROXY_APP_HOST
                       valueFrom:

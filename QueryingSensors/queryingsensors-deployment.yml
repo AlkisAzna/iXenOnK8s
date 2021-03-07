@@ -23,11 +23,6 @@ spec:
                 imagePullPolicy: IfNotPresent
                 ports:
                  - containerPort: 1024
-                readinessProbe:
-                    tcpSocket:
-                      port: 1024
-                    initialDelaySeconds: 120
-                    periodSeconds: 30
                 volumeMounts: 
                    - mountPath: /usr/src/app
                      name: queryingsensors-volume

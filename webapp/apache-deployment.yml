@@ -25,11 +25,6 @@ spec:
                   ports:
                     - containerPort: 80
                       protocol: TCP
-                  readinessProbe:
-                    tcpSocket:
-                      port: 80
-                    initialDelaySeconds: 120
-                    periodSeconds: 30
                   volumeMounts: 
                     - mountPath: /var/www/html
                       name: apache-volume
