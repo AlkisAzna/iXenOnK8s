@@ -195,7 +195,7 @@ var fiter_results=new Array();
             span.style.fontSize = "20px";
             span.style.color = "DodgerBlue";
             span.appendChild(createAText);
-            createA.setAttribute('href', "http://10.124.0.3:80/redirect.php/"+key);
+            createA.setAttribute('href', "http://35.242.244.192:32000/redirect.php/"+key);
             createA.appendChild(span);
             label.appendChild(createA);
             label.appendChild(document.createElement('br'));
