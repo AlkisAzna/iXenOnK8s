@@ -9,6 +9,6 @@ spec:
   clusterIP: 10.124.0.16
   ports:
   - protocol: TCP
-    name: apiport
+    name: tcp
     port: 5080
     targetPort: 5080
