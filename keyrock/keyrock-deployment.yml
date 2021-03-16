@@ -75,6 +75,25 @@ spec:
                     secretKeyRef: 
                         name: keyrock-secret
                         key: admin_pass
-
+                - name: IDM_PDP_LEVEL
+                  valueFrom:
+                    secretKeyRef: 
+                        name: keyrock-secret
+                        key: pdp_level
+                - name: IDM_AUTHZFORCE_ENABLED
+                  valueFrom:
+                    secretKeyRef: 
+                        name: keyrock-secret
+                        key: authzforce_enabled
+                - name: IDM_AUTHZFORCE_HOST
+                  valueFrom:
+                    secretKeyRef: 
+                        name: keyrock-secret
+                        key: authzforce_host
+                - name: IDM_AUTHZFORCE_PORT
+                  valueFrom:
+                   secretKeyRef: 
+                       name: keyrock-secret
+                       key: authzforce_port
 
 
