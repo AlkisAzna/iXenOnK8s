@@ -4,7 +4,7 @@ if (!empty($_SESSION["access_token"] )) {
 
  $USERNAME=$_SESSION["USERNAME"];
  $PASSWORD=$_SESSION["PASSWORD"];
- $ch = curl_init( "http://10.124.0.2:3005/oauth2/token" );
+ $ch = curl_init( "http://35.198.174.190:32027/oauth2/token" );
  $payload = 'grant_type=password&username='.$USERNAME.'&password='.$PASSWORD.'';
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
